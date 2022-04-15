@@ -8,7 +8,6 @@ public:
 	~Main();
 public:
 	wxTextCtrl* textBox = nullptr;
-
 	wxButton* num1 = nullptr;
 	wxButton* num2 = nullptr;
 	wxButton* num3 = nullptr;
@@ -29,7 +28,7 @@ public:
 	wxButton* equals = nullptr;
 	wxButton* clear = nullptr;
 	wxButton* backspace = nullptr;
-
+private:
 	void OnButtonClicked(wxCommandEvent& event);
 
 	wxDECLARE_EVENT_TABLE();
