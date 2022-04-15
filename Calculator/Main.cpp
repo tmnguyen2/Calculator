@@ -1,7 +1,7 @@
 ﻿#include "Main.h"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
-
+	EVT_BUTTON(wxID_ANY, Main::OnButtonClicked)
 wxEND_EVENT_TABLE()
 
 Main::Main() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(357, 585))
@@ -38,10 +38,31 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(
 
 Main::~Main()
 {
-	
+	delete textBox;
+	delete num1;
+	delete num2;
+	delete num3;
+	delete num4;
+	delete num5;
+	delete num6;
+	delete num7;
+	delete num8;
+	delete num9;
+	delete num0;
+	delete decimal;
+	delete signSwitch;
+	delete add;
+	delete subtract;
+	delete multiply;
+	delete divide;
+	delete mod;
+	delete equals;
+	delete clear;
+	delete backspace;
 }
 
 void Main::OnButtonClicked(wxCommandEvent& event)
 {
-
+	wxButton* temp = dynamic_cast<wxButton*>(event.GetEventObject());
+	textBox->AppendText(temp->GetLabel());
 }
