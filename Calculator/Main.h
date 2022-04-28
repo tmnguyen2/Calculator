@@ -25,6 +25,9 @@ public:
 	wxButton* multiply = nullptr;
 	wxButton* divide = nullptr;
 	wxButton* mod = nullptr;
+	wxButton* binConvert = nullptr;
+	wxButton* decConvert = nullptr;
+	wxButton* hexConvert = nullptr;
 	wxButton* equals = nullptr;
 	wxButton* clear = nullptr;
 	wxButton* backspace = nullptr;
