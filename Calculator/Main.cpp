@@ -9,9 +9,9 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(
 
 	textBox = new wxTextCtrl(this, 21, "0", wxPoint(0, 0), wxSize(340, 120), wxTE_RIGHT);
 
-	binConvert = new wxButton(this, 17, "bin", wxPoint(0, 120), wxSize(85, 85));;
-	decConvert = new wxButton(this, 18, "dec", wxPoint(85, 120), wxSize(85, 85));;
-	hexConvert = new wxButton(this, 19, "hex", wxPoint(170, 120), wxSize(85, 85));;
+	binConvert = new wxButton(this, 17, "bin", wxPoint(0, 120), wxSize(85, 85));
+	decConvert = new wxButton(this, 18, "dec", wxPoint(85, 120), wxSize(85, 85));
+	hexConvert = new wxButton(this, 19, "hex", wxPoint(170, 120), wxSize(85, 85));
 	mod = new wxButton(this, 16, "%", wxPoint(255, 120), wxSize(85, 85));
 
 	add = new wxButton(this, 12, "+", wxPoint(0, 205), wxSize(85, 85));
@@ -22,12 +22,12 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(
 	num7 = new wxButton(this, 7, "7", wxPoint(0, 290), wxSize(85, 85));
 	num8 = new wxButton(this, 8, "8", wxPoint(85, 290), wxSize(85, 85));
 	num9 = new wxButton(this, 9, "9", wxPoint(170, 290), wxSize(85, 85));
-	backspace = new wxButton(this, 9, "del", wxPoint(255, 290), wxSize(85, 85));
+	backspace = new wxButton(this, 21, "del", wxPoint(255, 290), wxSize(85, 85));
 
 	num4 = new wxButton(this, 4, "4", wxPoint(0, 375), wxSize(85, 85));
 	num5 = new wxButton(this, 5, "5", wxPoint(85, 375), wxSize(85, 85));
 	num6 = new wxButton(this, 6, "6", wxPoint(170, 375), wxSize(85, 85));
-	clear = new wxButton(this, 12, "C", wxPoint(255, 375), wxSize(85, 85));
+	clear = new wxButton(this, 22, "C", wxPoint(255, 375), wxSize(85, 85));
 
 	num1 = new wxButton(this, 1, "1", wxPoint(0, 460), wxSize(85, 85));
 	num2 = new wxButton(this, 2, "2", wxPoint(85, 460), wxSize(85, 85));
