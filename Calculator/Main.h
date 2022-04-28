@@ -28,9 +28,9 @@ public:
 	wxButton* binConvert = nullptr;
 	wxButton* decConvert = nullptr;
 	wxButton* hexConvert = nullptr;
-	wxButton* equals = nullptr;
 	wxButton* clear = nullptr;
 	wxButton* backspace = nullptr;
+	wxButton* equals = nullptr;
 private:
 	void OnButtonClicked(wxCommandEvent& event);
 

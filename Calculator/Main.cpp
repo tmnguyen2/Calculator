@@ -1,4 +1,5 @@
 ﻿#include "Main.h"
+#include "ButtonFactory.h"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
 	EVT_BUTTON(wxID_ANY, Main::OnButtonClicked)
@@ -6,37 +7,32 @@ wxEND_EVENT_TABLE()
 
 Main::Main() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(357, 670))
 {
-
-	textBox = new wxTextCtrl(this, 21, "0", wxPoint(0, 0), wxSize(340, 120), wxTE_RIGHT);
-
-	binConvert = new wxButton(this, 17, "bin", wxPoint(0, 120), wxSize(85, 85));
-	decConvert = new wxButton(this, 18, "dec", wxPoint(85, 120), wxSize(85, 85));
-	hexConvert = new wxButton(this, 19, "hex", wxPoint(170, 120), wxSize(85, 85));
-	mod = new wxButton(this, 16, "%", wxPoint(255, 120), wxSize(85, 85));
-
-	add = new wxButton(this, 12, "+", wxPoint(0, 205), wxSize(85, 85));
-	subtract = new wxButton(this, 13, "-", wxPoint(85, 205), wxSize(85, 85));
-	multiply = new wxButton(this, 14, "×", wxPoint(170, 205), wxSize(85, 85));
-	divide = new wxButton(this, 15, "÷", wxPoint(255, 205), wxSize(85, 85));
-
-	num7 = new wxButton(this, 7, "7", wxPoint(0, 290), wxSize(85, 85));
-	num8 = new wxButton(this, 8, "8", wxPoint(85, 290), wxSize(85, 85));
-	num9 = new wxButton(this, 9, "9", wxPoint(170, 290), wxSize(85, 85));
-	backspace = new wxButton(this, 21, "del", wxPoint(255, 290), wxSize(85, 85));
-
-	num4 = new wxButton(this, 4, "4", wxPoint(0, 375), wxSize(85, 85));
-	num5 = new wxButton(this, 5, "5", wxPoint(85, 375), wxSize(85, 85));
-	num6 = new wxButton(this, 6, "6", wxPoint(170, 375), wxSize(85, 85));
-	clear = new wxButton(this, 22, "C", wxPoint(255, 375), wxSize(85, 85));
-
-	num1 = new wxButton(this, 1, "1", wxPoint(0, 460), wxSize(85, 85));
-	num2 = new wxButton(this, 2, "2", wxPoint(85, 460), wxSize(85, 85));
-	num3 = new wxButton(this, 3, "3", wxPoint(170, 460), wxSize(85, 85));
-	equals = new wxButton(this, 20, "=", wxPoint(255, 460), wxSize(85, 170));
-
-	signSwitch = new wxButton(this, 11, "±", wxPoint(0, 545), wxSize(85, 85));
-	num0 = new wxButton(this, 0, "0", wxPoint(85, 545), wxSize(85, 85));
-	decimal = new wxButton(this, 10, ".", wxPoint(170, 545), wxSize(85, 85));
+	SetBackgroundColour(wxColour(*wxBLACK));
+	ButtonFactory factory = ButtonFactory(this);
+	textBox = new wxTextCtrl(this, 23, "0", wxPoint(1, 1), wxSize(338, 118), wxTE_RIGHT);
+	num0 = factory.CreateButton(0);
+	num1 = factory.CreateButton(1);
+	num2 = factory.CreateButton(2);
+	num3 = factory.CreateButton(3);
+	num4 = factory.CreateButton(4);
+	num5 = factory.CreateButton(5);
+	num6 = factory.CreateButton(6);
+	num7 = factory.CreateButton(7);
+	num8 = factory.CreateButton(8);
+	num9 = factory.CreateButton(9);
+	decimal = factory.CreateButton(10);
+	signSwitch = factory.CreateButton(11);
+	add = factory.CreateButton(12);
+	subtract = factory.CreateButton(13);
+	multiply = factory.CreateButton(14);
+	divide = factory.CreateButton(15);
+	mod = factory.CreateButton(16);
+	binConvert = factory.CreateButton(17);
+	decConvert = factory.CreateButton(18);
+	hexConvert = factory.CreateButton(19);
+	clear = factory.CreateButton(20);
+	backspace = factory.CreateButton(21);
+	equals = factory.CreateButton(22);
 }
 
 Main::~Main()
@@ -62,9 +58,9 @@ Main::~Main()
 	delete binConvert;
 	delete decConvert;
 	delete hexConvert;
-	delete equals;
-	delete clear;
 	delete backspace;
+	delete clear;
+	delete equals;
 }
 
 void Main::OnButtonClicked(wxCommandEvent& event)
