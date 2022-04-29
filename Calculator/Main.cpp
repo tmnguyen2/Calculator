@@ -179,7 +179,7 @@ void Main::OnButtonClicked(wxCommandEvent& event)
 			textBoxMini->Clear();
 			textBoxMini->SetValue(eventButton->GetLabel() + processor->GetResult());
 		}
-		if (textBox->GetValue() != "error" && !converted)
+		else if (textBox->GetValue() != "error" && !converted)
 		{
 			processor->Calculate(textBoxValue);
 			textBox->SetValue(processor->GetResult());

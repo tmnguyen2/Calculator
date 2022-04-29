@@ -20,29 +20,43 @@ void CalculatorProcessor::Calculate(wxString textBoxValue)
 	{
 		last = wxAtof(textBoxValue);
 	}
-	switch (function)
+
+	if (function == CalculatorProcessor::Function::Add)
 	{
-	case CalculatorProcessor::Function::Add:
-		answer = first + last;
+		AddCommand* add = new AddCommand(first, last);
+		commands.push_back(add);
+		answer = commands[0]->Execute();
 		result = wxString::Format(wxT("%g"), answer);
-		break;
-	case CalculatorProcessor::Function::Subtract:
-		answer = first - last;
-		result = wxString::Format(wxT("%g"), answer);
-		break;
-	case CalculatorProcessor::Function::Multiply:
-		answer = first * last;
-		result = wxString::Format(wxT("%g"), answer);
-		break;
-	case CalculatorProcessor::Function::Divide:
-		answer = first / last;
-		result = wxString::Format(wxT("%g"), answer);
-		break;
-	case CalculatorProcessor::Function::Mod:
-		answer = fmod(first, last);
-		result = wxString::Format(wxT("%g"), answer);
-		break;
 	}
+	else if (function == CalculatorProcessor::Function::Subtract)
+	{
+		SubtractCommand* subtract = new SubtractCommand(first, last);
+		commands.push_back(subtract);
+		answer = commands[0]->Execute();
+		result = wxString::Format(wxT("%g"), answer);
+	}
+	else if (function == CalculatorProcessor::Function::Multiply)
+	{
+		MultiplyCommand* multiply = new MultiplyCommand(first, last);
+		commands.push_back(multiply);
+		answer = commands[0]->Execute();
+		result = wxString::Format(wxT("%g"), answer);
+	}
+	else if (function == CalculatorProcessor::Function::Divide)
+	{
+		DivideCommand* divide = new DivideCommand(first, last);
+		commands.push_back(divide);
+		answer = commands[0]->Execute();
+		result = wxString::Format(wxT("%g"), answer);
+	}
+	else if (function == CalculatorProcessor::Function::Mod)
+	{
+		ModCommand* mod = new ModCommand(first, last);
+		commands.push_back(mod);
+		answer = commands[0]->Execute();
+		result = wxString::Format(wxT("%g"), answer);
+	}
+	commands.clear();
 	first = answer;
 	justCalculated = true;
 }

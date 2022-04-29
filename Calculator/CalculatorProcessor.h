@@ -1,5 +1,6 @@
 #pragma once
-#include <string>
+#include <vector>
+#include "IBaseCommand.h"
 #include <wx/wx.h>
 
 class CalculatorProcessor
@@ -30,6 +31,8 @@ private:
 	float answer;
 	wxString result;
 	bool justCalculated = false;
+	std::vector<IBaseCommand*> commands;
+	
 public:
 	CalculatorProcessor(CalculatorProcessor const&) = delete;
 	void operator = (CalculatorProcessor const&) = delete;
